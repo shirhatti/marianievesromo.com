@@ -1,0 +1,17 @@
+{
+  "name": "marianievesromo-com",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "deploy": "wrangler pages deploy dist"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.2",
+    "vite": "^6.3.2",
+    "wrangler": "^4.12.0"
+  }
+}
