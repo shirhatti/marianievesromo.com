@@ -6,8 +6,8 @@
   --cream-dark:   #ede5d5;
   --gold:         #c9a96e;
   --gold-light:   #e8d5aa;
-  --gold-label:   #7a5c28; /* accessible gold for small text on cream — 4.7:1 */
-  --rose:         #c4847a;
+  --gold-label:   #7a5c28; /* accessible gold for small text on cream — 5.46:1 */
+  --rose:         #8b4a43; /* accessible rose for small text on cream-dark — 5.31:1 */
   --rose-light:   #e8b8b3;
   --charcoal:     #2c2a27;
   --charcoal-mid: #4a4640;
