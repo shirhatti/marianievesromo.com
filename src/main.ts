@@ -1,3 +1,73 @@
+import justifiedLayout from 'justified-layout'
+
+// ─── Gallery — justified layout (Flickr algorithm) ───────────────────────
+const IMAGES = [
+  { w: 1444, h: 1999, src: '/images/image1.webp', alt: 'Maria Nieves Romo' },
+  { w: 1999, h: 1500, src: '/images/image5.webp', alt: 'Maria Nieves Romo' },
+  { w: 1624, h: 1999, src: '/images/image6.webp', alt: 'Maria Nieves Romo' },
+  { w: 1999, h: 1419, src: '/images/image4.webp', alt: 'Maria Nieves Romo con familia' },
+  { w: 1228, h: 1999, src: '/images/image2.webp', alt: 'Maria Nieves Romo' },
+  { w: 920,  h: 854,  src: '/images/image3.webp', alt: 'Maria Nieves Romo' },
+]
+
+function buildGallery() {
+  const container = document.querySelector<HTMLElement>('.gallery')
+  if (!container) return
+
+  const containerWidth = container.clientWidth
+  if (containerWidth === 0) return
+
+  const isMobile = containerWidth < 600
+  const layout = justifiedLayout(
+    IMAGES.map(img => ({ width: img.w, height: img.h })),
+    {
+      containerWidth,
+      targetRowHeight: isMobile
+        ? Math.round(containerWidth * 0.55)   // ~214px on 390px screen — 2 per row
+        : Math.round(containerWidth * 0.28),  // ~358px on 1280px — 3 per row
+      targetRowHeightTolerance: 0.25,
+      boxSpacing: isMobile ? 6 : 10,
+      containerPadding: 0,
+    }
+  )
+
+  container.style.position = 'relative'
+  container.style.height = layout.containerHeight + 'px'
+  container.innerHTML = ''
+
+  layout.boxes.forEach((box, i) => {
+    const img = IMAGES[i]
+    const figure = document.createElement('figure')
+    figure.className = 'gallery__item reveal'
+    figure.style.cssText = `
+      position: absolute;
+      left: ${box.left}px;
+      top: ${box.top}px;
+      width: ${box.width}px;
+      height: ${box.height}px;
+      margin: 0;
+      overflow: hidden;
+    `
+    const image = document.createElement('img')
+    image.src = img.src
+    image.alt = img.alt
+    image.loading = 'lazy'
+    image.style.cssText = 'width:100%;height:100%;object-fit:cover;transition:transform 0.7s cubic-bezier(0.22,1,0.36,1);display:block;'
+    figure.addEventListener('mouseenter', () => { image.style.transform = 'scale(1.04)' })
+    figure.addEventListener('mouseleave', () => { image.style.transform = 'scale(1)' })
+    figure.appendChild(image)
+    container.appendChild(figure)
+    observer.observe(figure)
+  })
+}
+
+// Rebuild on resize
+let resizeTimer: ReturnType<typeof setTimeout>
+window.addEventListener('resize', () => {
+  clearTimeout(resizeTimer)
+  resizeTimer = setTimeout(buildGallery, 150)
+})
+
 // ─── Intersection Observer — fade-in reveal ───────────────────────────────
 const observer = new IntersectionObserver(
   (entries) => {
@@ -12,6 +82,9 @@ const observer = new IntersectionObserver(
 )
 
 document.querySelectorAll('.reveal').forEach((el) => observer.observe(el))
+
+// Build gallery after observer is ready
+buildGallery()
 
 // ─── Language toggle ──────────────────────────────────────────────────────
 type Lang = 'es' | 'en'
