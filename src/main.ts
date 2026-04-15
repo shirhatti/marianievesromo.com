@@ -2,12 +2,12 @@ import justifiedLayout from 'justified-layout'
 
 // ─── Gallery — justified layout (Flickr algorithm) ───────────────────────
 const IMAGES = [
-  { w: 1444, h: 1999, src: '/images/image1.webp', alt: 'Maria Nieves Romo' },
-  { w: 1999, h: 1500, src: '/images/image5.webp', alt: 'Maria Nieves Romo' },
-  { w: 1624, h: 1999, src: '/images/image6.webp', alt: 'Maria Nieves Romo' },
-  { w: 1999, h: 1419, src: '/images/image4.webp', alt: 'Maria Nieves Romo con familia' },
-  { w: 1228, h: 1999, src: '/images/image2.webp', alt: 'Maria Nieves Romo' },
-  { w: 920,  h: 854,  src: '/images/image3.webp', alt: 'Maria Nieves Romo' },
+  { w: 1444, h: 1999, src: '/images/image1.webp', srcset: '/images/image1-800.webp 800w, /images/image1-1200.webp 1200w, /images/image1.webp 1444w', alt: 'Maria Nieves Romo' },
+  { w: 1999, h: 1500, src: '/images/image5.webp', srcset: '/images/image5-800.webp 800w, /images/image5.webp 1999w', alt: 'Maria Nieves Romo' },
+  { w: 1624, h: 2000, src: '/images/image6.webp', srcset: '/images/image6-800.webp 800w, /images/image6.webp 1624w', alt: 'Maria Nieves Romo' },
+  { w: 1999, h: 1419, src: '/images/image4.webp', srcset: '/images/image4-800.webp 800w, /images/image4-1200.webp 1200w, /images/image4.webp 1999w', alt: 'Maria Nieves Romo con familia' },
+  { w: 1168, h: 2000, src: '/images/image7.webp', srcset: '/images/image7-800.webp 800w, /images/image7.webp 1168w', alt: 'Maria Nieves Romo' },
+  { w: 920,  h: 854,  src: '/images/image3.webp', srcset: '/images/image3-600.webp 600w, /images/image3.webp 920w', alt: 'Maria Nieves Romo' },
 ]
 
 function buildGallery() {
@@ -50,6 +50,8 @@ function buildGallery() {
     `
     const image = document.createElement('img')
     image.src = img.src
+    image.srcset = img.srcset
+    image.sizes = `${Math.round(box.width)}px`
     image.alt = img.alt
     image.loading = 'lazy'
     image.style.cssText = 'width:100%;height:100%;object-fit:cover;transition:transform 0.7s cubic-bezier(0.22,1,0.36,1);display:block;'
@@ -124,3 +126,31 @@ btns.forEach((btn) => {
 
 // Default to English on load
 setLang('en')
+
+// ─── Responsive parallax dividers ────────────────────────────────────────
+const DIVIDER_SRCSETS: Record<string, [number, string][]> = {
+  '/images/image4.webp': [[800, '/images/image4-800.webp'], [1200, '/images/image4-1200.webp']],
+  '/images/image2.webp': [[800, '/images/image2-800.webp'], [1200, '/images/image2-1200.webp']],
+}
+
+function pickDividerSrc(original: string, displayWidth: number): string {
+  const variants = DIVIDER_SRCSETS[original]
+  if (!variants) return original
+  const dpr = window.devicePixelRatio ?? 1
+  const needed = displayWidth * dpr
+  for (const [w, src] of variants) {
+    if (needed <= w) return src
+  }
+  return original
+}
+
+document.querySelectorAll<HTMLElement>('.parallax-divider').forEach((el) => {
+  const style = el.getAttribute('style') ?? ''
+  const match = style.match(/url\('?([^')]+)'?\)/)
+  if (!match) return
+  const original = match[1]
+  const src = pickDividerSrc(original, el.offsetWidth || window.innerWidth)
+  if (src !== original) {
+    el.style.backgroundImage = `url('${src}')`
+  }
+})

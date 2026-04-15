@@ -5,9 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Maria Nieves Romo — En Memoria</title>
     <meta name="description" content="In loving memory of Maria Nieves Romo, August 5, 1938 – April 8, 2026." />
+    <!-- Preload the critical hero font (self-hosted, latin subset only) -->
+    <link rel="preload" href="/fonts/cg-300-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <!-- Remaining weights/families load non-blocking -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,300;1,400;1,500&family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,300;1,400;1,500&family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" /></noscript>
     <link rel="stylesheet" href="/src/style.css" />
   </head>
   <body>
@@ -21,7 +25,10 @@
 
     <!-- Hero -->
     <section class="hero" id="hero">
-      <img class="hero__bg" src="/images/image1.webp" alt="" aria-hidden="true" fetchpriority="high" />
+      <img class="hero__bg" src="/images/image1.webp"
+           srcset="/images/image1-800.webp 800w, /images/image1-1200.webp 1200w, /images/image1.webp 1444w"
+           sizes="100vw"
+           alt="" aria-hidden="true" fetchpriority="high" />
       <div class="hero__overlay"></div>
       <div class="hero__content">
         <p class="hero__pre"
@@ -69,55 +76,6 @@
             data-es="Momentos preciados"
             data-en="Cherished moments">Momentos preciados</h2>
         <div class="gallery"></div>
-      </div>
-    </section>
-
-    <!-- Photo divider 2 -->
-    <div class="parallax-divider parallax-divider--light" style="background-image: url('/images/image2.webp');" aria-hidden="true"></div>
-
-    <!-- Padre Nuestro / Our Father -->
-    <section class="section prayer-section reveal" id="prayer">
-      <div class="section__inner section__inner--narrow">
-        <div class="section__label"
-             data-es="Oración"
-             data-en="Prayer">Oración</div>
-        <h2 class="section__heading"
-            data-es="Padre Nuestro"
-            data-en="Our Father">Padre Nuestro</h2>
-        <div class="prayer" data-prayer>
-          <!-- Spanish -->
-          <div class="prayer__lang" data-prayer-es>
-            <p>Padre nuestro que estás en el cielo,</p>
-            <p>santificado sea tu Nombre;</p>
-            <p>venga a nosotros tu Reino;</p>
-            <p>hágase tu voluntad</p>
-            <p>en la tierra como en el cielo.</p>
-            <p class="prayer__break">Danos hoy</p>
-            <p>nuestro pan de cada día;</p>
-            <p>perdona nuestras ofensas,</p>
-            <p>como también nosotros perdonamos</p>
-            <p>a los que nos ofenden;</p>
-            <p>no nos dejes caer en la tentación,</p>
-            <p>y líbranos del mal.</p>
-            <p class="prayer__amen">Amén.</p>
-          </div>
-          <!-- English -->
-          <div class="prayer__lang prayer__lang--hidden" data-prayer-en>
-            <p>Our Father, who art in heaven,</p>
-            <p>hallowed be thy Name;</p>
-            <p>thy kingdom come;</p>
-            <p>thy will be done</p>
-            <p>on earth as it is in heaven.</p>
-            <p class="prayer__break">Give us this day</p>
-            <p>our daily bread;</p>
-            <p>and forgive us our trespasses,</p>
-            <p>as we forgive those</p>
-            <p>who trespass against us;</p>
-            <p>and lead us not into temptation,</p>
-            <p>but deliver us from evil.</p>
-            <p class="prayer__amen">Amen.</p>
-          </div>
-        </div>
       </div>
     </section>
 
@@ -211,6 +169,55 @@
             </div>
           </article>
 
+        </div>
+      </div>
+    </section>
+
+    <!-- Photo divider 2 -->
+    <div class="parallax-divider parallax-divider--light" style="background-image: url('/images/image2.webp');" aria-hidden="true"></div>
+
+    <!-- Padre Nuestro / Our Father -->
+    <section class="section prayer-section reveal" id="prayer">
+      <div class="section__inner section__inner--narrow">
+        <div class="section__label"
+             data-es="Oración"
+             data-en="Prayer">Oración</div>
+        <h2 class="section__heading"
+            data-es="Padre Nuestro"
+            data-en="Our Father">Padre Nuestro</h2>
+        <div class="prayer" data-prayer>
+          <!-- Spanish -->
+          <div class="prayer__lang" data-prayer-es>
+            <p>Padre nuestro que estás en el cielo,</p>
+            <p>santificado sea tu Nombre;</p>
+            <p>venga a nosotros tu Reino;</p>
+            <p>hágase tu voluntad</p>
+            <p>en la tierra como en el cielo.</p>
+            <p class="prayer__break">Danos hoy</p>
+            <p>nuestro pan de cada día;</p>
+            <p>perdona nuestras ofensas,</p>
+            <p>como también nosotros perdonamos</p>
+            <p>a los que nos ofenden;</p>
+            <p>no nos dejes caer en la tentación,</p>
+            <p>y líbranos del mal.</p>
+            <p class="prayer__amen">Amén.</p>
+          </div>
+          <!-- English -->
+          <div class="prayer__lang prayer__lang--hidden" data-prayer-en>
+            <p>Our Father, who art in heaven,</p>
+            <p>hallowed be thy Name;</p>
+            <p>thy kingdom come;</p>
+            <p>thy will be done</p>
+            <p>on earth as it is in heaven.</p>
+            <p class="prayer__break">Give us this day</p>
+            <p>our daily bread;</p>
+            <p>and forgive us our trespasses,</p>
+            <p>as we forgive those</p>
+            <p>who trespass against us;</p>
+            <p>and lead us not into temptation,</p>
+            <p>but deliver us from evil.</p>
+            <p class="prayer__amen">Amen.</p>
+          </div>
         </div>
       </div>
     </section>
