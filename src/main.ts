@@ -14,8 +14,11 @@ function buildGallery() {
   const container = document.querySelector<HTMLElement>('.gallery')
   if (!container) return
 
-  const containerWidth = container.clientWidth
-  if (containerWidth === 0) return
+  // Derive width from CSS rules without reading DOM geometry (avoids forced reflow).
+  // .section has 1.5rem padding on each side; .section__inner has max-width 1200px.
+  const sectionPadPx = parseFloat(getComputedStyle(document.documentElement).fontSize) * 1.5
+  const containerWidth = Math.min(window.innerWidth - sectionPadPx * 2, 1200)
+  if (containerWidth <= 0) return
 
   const isMobile = containerWidth < 600
   const layout = justifiedLayout(
