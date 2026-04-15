@@ -105,7 +105,8 @@ figure { margin: 0; }
   background-image: url('/images/image1.webp');
   background-attachment: fixed;
   background-size: cover;
-  background-position: 65% center;
+  /* Desktop: face on right, keep head in frame */
+  background-position: 62% top;
   display: flex;
   align-items: flex-end;
   justify-content: flex-start;
@@ -115,9 +116,10 @@ figure { margin: 0; }
 .hero__overlay {
   position: absolute;
   inset: 0;
+  /* Desktop: strong left gradient so left-aligned text is legible */
   background:
-    linear-gradient(to right, rgba(26, 24, 20, 0.92) 0%, rgba(26, 24, 20, 0.7) 38%, rgba(26, 24, 20, 0.15) 65%, rgba(26, 24, 20, 0.0) 100%),
-    linear-gradient(to bottom, rgba(26, 24, 20, 0.0) 0%, rgba(26, 24, 20, 0.0) 60%, rgba(26, 24, 20, 0.5) 100%);
+    linear-gradient(to right, rgba(26, 24, 20, 0.92) 0%, rgba(26, 24, 20, 0.65) 38%, rgba(26, 24, 20, 0.1) 65%, rgba(26, 24, 20, 0.0) 100%),
+    linear-gradient(to bottom, rgba(26, 24, 20, 0.0) 0%, rgba(26, 24, 20, 0.0) 55%, rgba(26, 24, 20, 0.55) 100%);
 }
 
 .hero__content {
@@ -128,6 +130,41 @@ figure { margin: 0; }
   text-align: left;
   animation: heroFadeUp 1.6s cubic-bezier(0.22, 1, 0.36, 1) both;
   align-self: flex-end;
+}
+
+/* ── Tablet: face centered, text bottom-center ── */
+@media (max-width: 1023px) {
+  .hero {
+    background-position: center top;
+    align-items: flex-end;
+    justify-content: center;
+  }
+  .hero__overlay {
+    background:
+      linear-gradient(to bottom, rgba(26, 24, 20, 0.05) 0%, rgba(26, 24, 20, 0.05) 45%, rgba(26, 24, 20, 0.75) 75%, rgba(26, 24, 20, 0.9) 100%);
+  }
+  .hero__content {
+    text-align: center;
+    max-width: 640px;
+    padding: 0 2rem 4rem;
+  }
+  .hero__quote {
+    margin: 0 auto;
+  }
+}
+
+/* ── Mobile: tighter bottom gradient, smaller padding ── */
+@media (max-width: 600px) {
+  .hero {
+    background-position: center 10%;
+  }
+  .hero__content {
+    padding: 0 1.5rem 3rem;
+  }
+  .hero__scroll-hint {
+    right: 50%;
+    transform: translateX(50%);
+  }
 }
 
 .hero__pre {
@@ -177,7 +214,7 @@ figure { margin: 0; }
 .hero__scroll-hint {
   position: absolute;
   bottom: 1rem;
-  right: clamp(2rem, 6vw, 5rem);
+  left: clamp(2rem, 6vw, 5rem);
   z-index: 2;
 }
 .hero__scroll-hint span {
