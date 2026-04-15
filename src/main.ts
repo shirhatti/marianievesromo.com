@@ -48,3 +48,6 @@ btns.forEach((btn) => {
     setLang(btn.dataset.lang as Lang)
   })
 })
+
+// Default to English on load
+setLang('en')

@@ -10,6 +10,8 @@
     "deploy": "wrangler pages deploy dist"
   },
   "devDependencies": {
+    "@playwright/test": "^1.59.1",
+    "playwright": "^1.59.1",
     "typescript": "^5.7.2",
     "vite": "^6.3.2",
     "wrangler": "^4.12.0"
