@@ -12,13 +12,24 @@
   </head>
   <body>
 
+    <!-- Language toggle -->
+    <div class="lang-toggle" aria-label="Language selector">
+      <button class="lang-btn lang-btn--active" data-lang="es" aria-pressed="true">ES</button>
+      <span class="lang-divider" aria-hidden="true"></span>
+      <button class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+
     <!-- Hero -->
     <section class="hero" id="hero">
       <div class="hero__overlay"></div>
       <div class="hero__content">
-        <p class="hero__pre">En Memoria</p>
+        <p class="hero__pre"
+           data-es="En Memoria"
+           data-en="In Memory">En Memoria</p>
         <h1 class="hero__name">Maria Nieves Romo</h1>
-        <p class="hero__dates">agosto 5, 1938 &nbsp;&mdash;&nbsp; abril 8, 2026</p>
+        <p class="hero__dates"
+           data-es="agosto 5, 1938 &nbsp;&mdash;&nbsp; abril 8, 2026"
+           data-en="August 5, 1938 &nbsp;&mdash;&nbsp; April 8, 2026">agosto 5, 1938 &nbsp;&mdash;&nbsp; abril 8, 2026</p>
         <blockquote class="hero__quote">&ldquo;Que dios me la bendiga, me la cuida, y me la proteja.&rdquo;</blockquote>
       </div>
       <div class="hero__scroll-hint" aria-hidden="true">
@@ -29,11 +40,17 @@
     <!-- Obituary -->
     <section class="section obituary reveal" id="obituary">
       <div class="section__inner">
-        <div class="section__label">Obituario</div>
-        <h2 class="section__heading">Una madre devota</h2>
+        <div class="section__label"
+             data-es="Obituario"
+             data-en="Obituary">Obituario</div>
+        <h2 class="section__heading"
+            data-es="Una madre devota"
+            data-en="A devoted mother">Una madre devota</h2>
         <div class="obituary__body">
-          <p>Maria Nieves Romo, 87, de Costa Mesa, una madre devota, falleció pacíficamente el 8 de abril de 2026, rodeada de su amorosa familia. Los servicios se llevarán a cabo en Oakdale Mortuary &amp; Memorial Park en Glendora, CA.</p>
-          <p>Le sobreviven sus hijos Adolfo, Jose, Tony, Miguel y Daniel; sus hijas Alicia Romo, Maria Chavez, Patty Bonilla, Anna Arroyo y Estella Rodriguez; su hermano Jesús Martínez; sus hermanas Chayo Tanaka, Aurora Coronado, Lupe Covarrubias y Alicia Farías; 24 nietos; y 30 bisnietos.</p>
+          <p data-es="Maria Nieves Romo, 87, de Costa Mesa, una madre devota, falleció pacíficamente el 8 de abril de 2026, rodeada de su amorosa familia. Los servicios se llevarán a cabo en Oakdale Mortuary &amp; Memorial Park en Glendora, CA."
+             data-en="Maria Nieves Romo, 87, of Costa Mesa, a devoted mother, passed away peacefully on April 8, 2026, surrounded by her loving family. Services will be held at Oakdale Mortuary &amp; Memorial Park in Glendora, CA.">Maria Nieves Romo, 87, de Costa Mesa, una madre devota, falleció pacíficamente el 8 de abril de 2026, rodeada de su amorosa familia. Los servicios se llevarán a cabo en Oakdale Mortuary &amp; Memorial Park en Glendora, CA.</p>
+          <p data-es="Le sobreviven sus hijos Adolfo, Jose, Tony, Miguel y Daniel; sus hijas Alicia Romo, Maria Chavez, Patty Bonilla, Anna Arroyo y Estella Rodriguez; su hermano Jesús Martínez; sus hermanas Chayo Tanaka, Aurora Coronado, Lupe Covarrubias y Alicia Farías; 24 nietos; y 30 bisnietos."
+             data-en="She is survived by her sons, Adolfo, Jose, Tony, Miguel, and Daniel; her daughters, Alicia Romo, Maria Chavez, Patty Bonilla, Anna Arroyo, and Estella Rodriguez; her brother, Jesus Martinez; her sisters, Chayo Tanaka, Aurora Coronado, Lupe Covarrubias, and Alicia Farias; 24 grandchildren; and 30 great-grandchildren.">Le sobreviven sus hijos Adolfo, Jose, Tony, Miguel y Daniel; sus hijas Alicia Romo, Maria Chavez, Patty Bonilla, Anna Arroyo y Estella Rodriguez; su hermano Jesús Martínez; sus hermanas Chayo Tanaka, Aurora Coronado, Lupe Covarrubias y Alicia Farías; 24 nietos; y 30 bisnietos.</p>
         </div>
       </div>
     </section>
@@ -44,8 +61,12 @@
     <!-- Gallery -->
     <section class="section gallery-section reveal" id="gallery">
       <div class="section__inner">
-        <div class="section__label">Recuerdos</div>
-        <h2 class="section__heading">Momentos preciados</h2>
+        <div class="section__label"
+             data-es="Recuerdos"
+             data-en="Memories">Recuerdos</div>
+        <h2 class="section__heading"
+            data-es="Momentos preciados"
+            data-en="Cherished moments">Momentos preciados</h2>
         <div class="gallery">
           <figure class="gallery__item gallery__item--tall reveal">
             <img src="/images/image1.webp" alt="Maria Nieves Romo" loading="lazy" />
@@ -72,25 +93,48 @@
     <!-- Photo divider 2 -->
     <div class="parallax-divider parallax-divider--light" style="background-image: url('/images/image2.webp');" aria-hidden="true"></div>
 
-    <!-- Padre Nuestro -->
+    <!-- Padre Nuestro / Our Father -->
     <section class="section prayer-section reveal" id="prayer">
       <div class="section__inner section__inner--narrow">
-        <div class="section__label">Oración</div>
-        <h2 class="section__heading">Padre Nuestro</h2>
-        <div class="prayer">
-          <p>Padre nuestro que estás en el cielo,</p>
-          <p>santificado sea tu Nombre;</p>
-          <p>venga a nosotros tu Reino;</p>
-          <p>hágase tu voluntad</p>
-          <p>en la tierra como en el cielo.</p>
-          <p class="prayer__break">Danos hoy</p>
-          <p>nuestro pan de cada día;</p>
-          <p>perdona nuestras ofensas,</p>
-          <p>como también nosotros perdonamos</p>
-          <p>a los que nos ofenden;</p>
-          <p>no nos dejes caer en la tentación,</p>
-          <p>y líbranos del mal.</p>
-          <p class="prayer__amen">Amén.</p>
+        <div class="section__label"
+             data-es="Oración"
+             data-en="Prayer">Oración</div>
+        <h2 class="section__heading"
+            data-es="Padre Nuestro"
+            data-en="Our Father">Padre Nuestro</h2>
+        <div class="prayer" data-prayer>
+          <!-- Spanish -->
+          <div class="prayer__lang" data-prayer-es>
+            <p>Padre nuestro que estás en el cielo,</p>
+            <p>santificado sea tu Nombre;</p>
+            <p>venga a nosotros tu Reino;</p>
+            <p>hágase tu voluntad</p>
+            <p>en la tierra como en el cielo.</p>
+            <p class="prayer__break">Danos hoy</p>
+            <p>nuestro pan de cada día;</p>
+            <p>perdona nuestras ofensas,</p>
+            <p>como también nosotros perdonamos</p>
+            <p>a los que nos ofenden;</p>
+            <p>no nos dejes caer en la tentación,</p>
+            <p>y líbranos del mal.</p>
+            <p class="prayer__amen">Amén.</p>
+          </div>
+          <!-- English -->
+          <div class="prayer__lang prayer__lang--hidden" data-prayer-en>
+            <p>Our Father, who art in heaven,</p>
+            <p>hallowed be thy Name;</p>
+            <p>thy kingdom come;</p>
+            <p>thy will be done</p>
+            <p>on earth as it is in heaven.</p>
+            <p class="prayer__break">Give us this day</p>
+            <p>our daily bread;</p>
+            <p>and forgive us our trespasses,</p>
+            <p>as we forgive those</p>
+            <p>who trespass against us;</p>
+            <p>and lead us not into temptation,</p>
+            <p>but deliver us from evil.</p>
+            <p class="prayer__amen">Amen.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -98,29 +142,47 @@
     <!-- Services -->
     <section class="section services-section reveal" id="services">
       <div class="section__inner">
-        <div class="section__label">Servicios</div>
-        <h2 class="section__heading">Celebración de su vida</h2>
+        <div class="section__label"
+             data-es="Servicios"
+             data-en="Services">Servicios</div>
+        <h2 class="section__heading"
+            data-es="Celebración de su vida"
+            data-en="Celebration of her life">Celebración de su vida</h2>
 
         <div class="timeline">
 
           <article class="timeline__item reveal">
             <div class="timeline__marker"></div>
             <div class="timeline__content">
-              <div class="timeline__date">Jueves, 14 de mayo de 2026</div>
-              <h3 class="timeline__title">Velorio</h3>
+              <div class="timeline__date"
+                   data-es="Jueves, 14 de mayo de 2026"
+                   data-en="Thursday, May 14, 2026">Jueves, 14 de mayo de 2026</div>
+              <h3 class="timeline__title"
+                  data-es="Velorio"
+                  data-en="Viewing">Velorio</h3>
               <p class="timeline__time">5:00 PM – 8:00 PM PT</p>
-              <p class="timeline__location">Oakdale Mortuary &amp; Memorial Park — Capilla</p>
+              <p class="timeline__location"
+                 data-es="Oakdale Mortuary &amp; Memorial Park — Capilla"
+                 data-en="Oakdale Mortuary &amp; Memorial Park — Chapel">Oakdale Mortuary &amp; Memorial Park — Capilla</p>
               <p class="timeline__address">1401 S Grand Ave, Glendora, CA 91740</p>
-              <p class="timeline__note"><em>Se servirán pan dulce y café.</em></p>
-              <p class="timeline__flowers">Si desea enviar flores para el velorio, por favor entrégalas antes de las 2:00 PM PT del 14 de mayo a Oakdale Mortuary &amp; Memorial Park.</p>
+              <p class="timeline__note"><em
+                   data-es="Se servirán pan dulce y café."
+                   data-en="Pan dulce and coffee will be served.">Se servirán pan dulce y café.</em></p>
+              <p class="timeline__flowers"
+                 data-es="Si desea enviar flores para el velorio, por favor entrégalas antes de las 2:00 PM PT del 14 de mayo a Oakdale Mortuary &amp; Memorial Park."
+                 data-en="If you would like to send flowers for the viewing, please have them delivered no later than 2:00 PM PT on May 14 to Oakdale Mortuary &amp; Memorial Park.">Si desea enviar flores para el velorio, por favor entrégalas antes de las 2:00 PM PT del 14 de mayo a Oakdale Mortuary &amp; Memorial Park.</p>
             </div>
           </article>
 
           <article class="timeline__item reveal">
             <div class="timeline__marker"></div>
             <div class="timeline__content">
-              <div class="timeline__date">Viernes, 15 de mayo de 2026</div>
-              <h3 class="timeline__title">Misa</h3>
+              <div class="timeline__date"
+                   data-es="Viernes, 15 de mayo de 2026"
+                   data-en="Friday, May 15, 2026">Viernes, 15 de mayo de 2026</div>
+              <h3 class="timeline__title"
+                  data-es="Misa"
+                  data-en="Mass">Misa</h3>
               <p class="timeline__time">10:00 AM – 11:00 AM PT</p>
               <p class="timeline__location">Saint Joachim Catholic Church</p>
               <p class="timeline__address">1964 Orange Ave, Costa Mesa, CA 92627</p>
@@ -130,10 +192,16 @@
           <article class="timeline__item reveal">
             <div class="timeline__marker"></div>
             <div class="timeline__content">
-              <div class="timeline__date">Viernes, 15 de mayo de 2026</div>
-              <h3 class="timeline__title">Servicio de entierro</h3>
+              <div class="timeline__date"
+                   data-es="Viernes, 15 de mayo de 2026"
+                   data-en="Friday, May 15, 2026">Viernes, 15 de mayo de 2026</div>
+              <h3 class="timeline__title"
+                  data-es="Servicio de entierro"
+                  data-en="Burial Service">Servicio de entierro</h3>
               <p class="timeline__time">~12:00 PM – 1:00 PM PT</p>
-              <p class="timeline__note"><em>Inmediatamente después de la Misa</em></p>
+              <p class="timeline__note"><em
+                   data-es="Inmediatamente después de la Misa"
+                   data-en="Immediately following Mass">Inmediatamente después de la Misa</em></p>
               <p class="timeline__location">Oakdale Mortuary &amp; Memorial Park</p>
               <p class="timeline__address">1401 S Grand Ave, Glendora, CA 91740</p>
             </div>
@@ -142,12 +210,22 @@
           <article class="timeline__item reveal">
             <div class="timeline__marker"></div>
             <div class="timeline__content">
-              <div class="timeline__date">Viernes, 15 de mayo de 2026</div>
-              <h3 class="timeline__title">Celebración de vida</h3>
+              <div class="timeline__date"
+                   data-es="Viernes, 15 de mayo de 2026"
+                   data-en="Friday, May 15, 2026">Viernes, 15 de mayo de 2026</div>
+              <h3 class="timeline__title"
+                  data-es="Celebración de vida"
+                  data-en="Celebration of Life">Celebración de vida</h3>
               <p class="timeline__time">2:30 PM – 6:30 PM PT</p>
-              <p class="timeline__note"><em>Inmediatamente después del servicio de entierro</em></p>
-              <p class="timeline__location">Residencia privada — Costa Mesa, CA</p>
-              <p class="timeline__note"><em>Se servirán comida y refrescos.</em></p>
+              <p class="timeline__note"><em
+                   data-es="Inmediatamente después del servicio de entierro"
+                   data-en="Immediately following the burial service">Inmediatamente después del servicio de entierro</em></p>
+              <p class="timeline__location"
+                 data-es="Residencia privada — Costa Mesa, CA"
+                 data-en="Private Residence — Costa Mesa, CA">Residencia privada — Costa Mesa, CA</p>
+              <p class="timeline__note"><em
+                   data-es="Se servirán comida y refrescos."
+                   data-en="Food and refreshments will be served.">Se servirán comida y refrescos.</em></p>
             </div>
           </article>
 
@@ -159,7 +237,9 @@
     <footer class="footer">
       <div class="footer__inner">
         <p class="footer__name">Maria Nieves Romo</p>
-        <p class="footer__dates">agosto 5, 1938 &nbsp;&mdash;&nbsp; abril 8, 2026</p>
+        <p class="footer__dates"
+           data-es="agosto 5, 1938 &nbsp;&mdash;&nbsp; abril 8, 2026"
+           data-en="August 5, 1938 &nbsp;&mdash;&nbsp; April 8, 2026">agosto 5, 1938 &nbsp;&mdash;&nbsp; abril 8, 2026</p>
         <p class="footer__quote">&ldquo;Que dios me la bendiga, me la cuida, y me la proteja.&rdquo;</p>
       </div>
     </footer>
