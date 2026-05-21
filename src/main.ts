@@ -93,12 +93,13 @@ document.querySelectorAll('.reveal').forEach((el) => observer.observe(el))
 requestAnimationFrame(buildGallery)
 
 // ─── Language toggle ──────────────────────────────────────────────────────
-type Lang = 'es' | 'en'
+type Lang = 'es' | 'en' | 'fr'
 
 const html = document.documentElement
 const btns = document.querySelectorAll<HTMLButtonElement>('.lang-btn')
 const prayerEs = document.querySelector<HTMLElement>('[data-prayer-es]')
 const prayerEn = document.querySelector<HTMLElement>('[data-prayer-en]')
+const prayerFr = document.querySelector<HTMLElement>('[data-prayer-fr]')
 
 function setLang(lang: Lang) {
   html.lang = lang
@@ -110,16 +111,15 @@ function setLang(lang: Lang) {
     btn.setAttribute('aria-pressed', String(active))
   })
 
-  // swap all data-es / data-en text nodes
+  // swap all data-es / data-en / data-fr text nodes
   document.querySelectorAll<HTMLElement>('[data-es][data-en]').forEach((el) => {
-    el.innerHTML = el.dataset[lang] ?? ''
+    el.innerHTML = el.dataset[lang] ?? el.dataset.en ?? ''
   })
 
   // swap prayer blocks
-  if (prayerEs && prayerEn) {
-    prayerEs.classList.toggle('prayer__lang--hidden', lang === 'en')
-    prayerEn.classList.toggle('prayer__lang--hidden', lang === 'es')
-  }
+  if (prayerEs) prayerEs.classList.toggle('prayer__lang--hidden', lang !== 'es')
+  if (prayerEn) prayerEn.classList.toggle('prayer__lang--hidden', lang !== 'en')
+  if (prayerFr) prayerFr.classList.toggle('prayer__lang--hidden', lang !== 'fr')
 }
 
 btns.forEach((btn) => {
